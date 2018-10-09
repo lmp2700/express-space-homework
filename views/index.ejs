@@ -9,11 +9,9 @@
 <body>
 
 <ul class="missions">
-<li><a href="">Curiosity</a></li>
-<li><a href="">Opportunity</a></li>
-<li><a href="">Spirit</a></li>
-<li><a href="">Sojourner</a></li>
-<li><a href="">Rosetta</a></li>
+<% for(i = 0; i < mission.length; i++) { %>
+  <li><a href=""><%= mission[i].name %></a></li> 
+  <% } %>
 </ul>
 
 </body>

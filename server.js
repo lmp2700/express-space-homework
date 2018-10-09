@@ -7,26 +7,28 @@ const express = require('express');
 const app = express();
 const Missions = require('./models/marsMissions.js')
 
-app.get('/missions', (req, res) => {
-  res.send(Missions);
-})
+// app.get('/missions', (req, res) => {
+//   res.send(Missions);
+// })
 
 // app.get('/missions/:id', (req, res) => {
 //   res.send(Missions[req.params.id])
 // })
 
-// INDEX Route - no working with ID
-app.get('/missions/index', (req, res) => {
-  res.render('index.ejs');
+// INDEX Route 
+app.get('/missions', (req, res) => {
+  res.render('index.ejs', {
+    mission: Missions
+  });
 });
 // * Make it so you can click on a mission’s name on the index page, and be taken to that mission’s show page
 
 // SHOW Route
 // send data to 'missions/show.ejs' view
-app.get('/missions/index/:curiosity', (req, res) => {
+app.get('/missions/:show', (req, res) => {
   res.render('show.ejs', {
-    mission = Missions(get.params[0])
-  });
+    mission: Missions[req.params[0]]
+  })
 });
 // the view should display all the data for a single mission
 
